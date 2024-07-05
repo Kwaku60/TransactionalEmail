@@ -16,7 +16,7 @@ This project is a transactional email service built with Node.js and React. It u
 git clone https://github.com/yourusername/transactional-email-service.git
 cd transactional-email-service
 
-### 2. Install Dependencies
+### 2. Install Dependencies.
 npm install
 
 cd client
