@@ -1,0 +1,63 @@
+/* src/components/EmailForm.css */
+.email-form-container {
+    background-color: rgba(255, 228, 196, 0.9);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 400px;
+    max-width: 90%;
+  }
+
+  .email-form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .form-group {
+    margin-bottom: 15px;
+  }
+
+  label {
+    font-family: 'Arial', sans-serif;
+    color: rgba(128, 0, 0, 0.9);
+    margin: 8px 0;
+    display: block;
+  }
+
+  input,
+  select,
+  textarea,
+  button {
+    font-family: 'Arial', sans-serif;
+    padding: 10px;
+    margin-top: 5px;
+    border: 2px solid rgba(128, 0, 0, 0.5);
+    border-radius: 6px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  input:focus,
+  select:focus,
+  textarea:focus,
+  button:focus {
+    outline: none;
+    border-color: rgba(128, 0, 0, 0.7);
+  }
+
+  button {
+    background-color: rgba(128, 0, 0, 0.9);
+    color: #ffe4c4;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  button:hover {
+    background-color: rgba(128, 0, 0, 1);
+  }
+
+  .response-message {
+    margin-top: 15px;
+    font-family: 'Arial', sans-serif;
+    color: rgba(128, 0, 0, 0.9);
+  }

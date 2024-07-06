@@ -1,0 +1,28 @@
+
+
+.app {
+  text-align: center;
+  background: linear-gradient(135deg, rgba(128,0,0,0.05), rgba(255,228,196,0.05));
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-header {
+  background-color: rgba(128,0,0,0.9);
+  padding: 20px;
+  color: #f0e3d4;
+}
+
+h1 {
+  font-family: 'Arial', sans-serif;
+  font-size: 2.5em;
+  margin: 0;
+}
+
+main {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
