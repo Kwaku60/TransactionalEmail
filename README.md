@@ -6,7 +6,7 @@ This project is a transactional email service built with Node.js and React. It u
 
 - Node.js (v16.x or later recommended)
 - PostgreSQL (latest version)
-- Postmark API account and API key
+- Mailgun API account and API key
 
 ## Setup Instructions
 
