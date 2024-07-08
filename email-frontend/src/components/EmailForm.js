@@ -15,9 +15,10 @@ const EmailForm = () => {
   const [responseMsg, setResponseMsg] = useState('');
 
   const axiosInstance = axios.create({
-    baseURL: 'http://localhost:3000', // Adjust URL as needed
+    baseURL: 'http://localhost:3000',
   });
 
+  //debugging
   axiosInstance.interceptors.request.use(request => {
     console.log('Starting Request', request);
     return request;
@@ -48,7 +49,6 @@ const EmailForm = () => {
   };
 
   const handleSubmit = async (e) => {
-    console.log("sub")
     e.preventDefault();
     try {
       const response = await axiosInstance.post('/api/send-email', formData);
@@ -75,8 +75,8 @@ const EmailForm = () => {
           <label>Template:</label>
           <select name="templateID" value={formData.templateID} onChange={handleChange} required>
             <option value="">Choose a template</option>
-            <option value="ZgT2Lh2u05qpDPhdqA4CHjvGYtbKKFJg6sgkdlCDr5CR8IvWtogk5fmx">Template 1</option>
-            <option value="yX_7V9nnrBD92iRcDS4dT8h7a1aZxEFKQeCQzlpM_JjuE0rLa55eVFUu">Template 2</option>
+            <option value="fsm1">Template 1</option>
+            <option value="fms2">Template 2</option>
           </select>
         </div>
         <div>

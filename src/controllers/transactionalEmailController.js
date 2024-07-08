@@ -3,15 +3,14 @@ const { createEmailLog } = require('../models/emailModel');
 
 
 const sendEmail = async (req, res) => {
-    console.log("sendingv")
     const { to, templateID, dynamicData } = req.body;
     try {
-      // Send  email
-      console.log("sending")
-      await sendTransactionalEmail({ to, templateID, dynamicData });
+      // Send  email, capture messageId from the result
+      const result = await sendTransactionalEmail({ to, templateID, dynamicData });
+      const messageId = result.id; // Extract messageId from Mailgun response
 
       // Log the email details into the database
-      const emailLog = await createEmailLog(to, templateID, 0, 0); // Initial openRate and clickRate
+      const emailLog = await createEmailLog(messageId, to, templateID, 0, 0); // Initial openRate and clickRate
 
       res.status(200).json({ message: 'Email sent successfully' });
     } catch (error) {

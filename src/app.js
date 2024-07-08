@@ -2,7 +2,10 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const emailRoutes = require('./routes/emailRoutes'); // Import the routes
+const webhookController = require('./controllers/webhookController');
 
+
+let ngrokUrl = '';
 
 const app = express();
 
@@ -11,11 +14,23 @@ app.use(bodyParser.json());
 app.use(cors()); // Enable CORS for all routes
 
 
+// Configuration endpoint to update ngrok URL
+app.post('/configure-ngrok', (req, res) => {
+  ngrokUrl = req.body.ngrokUrl;
+  res.send(`ngrok URL updated to ${ngrokUrl}`);
+});
 
-app.options('/api/send-email', cors());
 
 //Routes
-app.use('/', emailRoutes);
+app.use('/', (req, res, next) => {
+  if (!ngrokUrl) {
+    return res.status(500).send('ngrok URL not configured');
+  }
+  req.ngrokUrl = ngrokUrl;
+  next();
+}, emailRoutes);
+
+
 
 
 
@@ -38,7 +53,7 @@ app.use((error, req, res, next) => {
 
 
 
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
